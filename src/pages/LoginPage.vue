@@ -29,7 +29,8 @@ import {
     IonItem, IonLabel, IonInput, IonButton, IonText
 } from '@ionic/vue';
 import { collection, query, getDocs, where } from 'firebase/firestore';
-import { db } from '@/model/firebaseConfig';
+import { db, auth } from '@/model/firebaseConfig';
+import { signInAnonymously, updateProfile } from 'firebase/auth';
 
 const cpf = ref('');
 const error = ref('');
@@ -48,10 +49,19 @@ const login = async () => {
             error.value = "CPF não encontrado"
             return
         }
-        const doc = querySnap.docs[0]
-        console.log("Paciente: ", doc.id, doc.data())
-        router.push('/menu/');
-    }catch (err) {
+
+        await signInAnonymously(auth)
+            .then(async (res) => {
+                const doc = querySnap.docs[0]
+                updateProfile(res.user, { displayName: doc.data().nome })
+                console.log("Paciente: ", doc.id, doc.data())
+                router.push('/menu/');
+            })
+            .catch(signError => {
+                console.log(signError)
+            })
+
+    } catch (err) {
         console.log(err)
         error.value = "Erro ao consultar o CPF"
     }
