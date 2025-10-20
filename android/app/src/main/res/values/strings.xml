@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">saude-em-ordem-ionic-user</string>
+    <string name="title_activity_main">saude-em-ordem-ionic-user</string>
+    <string name="package_name">saude.em.ordem.ionic.user</string>
+    <string name="custom_url_scheme">saude.em.ordem.ionic.user</string>
+</resources>
