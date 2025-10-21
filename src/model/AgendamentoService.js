@@ -1,6 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import { Atendimento } from "./Atendimento";
-import {db} from "@/model/firebaseConfig"
+import { db } from "@/model/firebaseConfig"
 
 export default class AgendamentoService {
   static async fetchAtendimentos() {
@@ -24,7 +24,7 @@ export default class AgendamentoService {
   }
 
   static async marcarAtendimento() {
-    
+
   }
 
 }

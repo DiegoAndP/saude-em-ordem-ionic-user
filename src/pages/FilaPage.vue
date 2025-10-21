@@ -10,7 +10,6 @@
                 <h1 v-if="isAuthenticated"> Hoje Teremos Atendimentos,  {{user.displayName }} :'D</h1>
                 <h1 v-else>Ainda não existem atendimentos em andamento :^D</h1>
             </div>
-
         </ion-content>
     </ion-page>
 </template>

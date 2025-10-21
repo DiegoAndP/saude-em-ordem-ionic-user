@@ -2,7 +2,7 @@
   <ion-page>
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
-      <ion-tab-bar  slot="bottom">
+      <ion-tab-bar slot="bottom">
         <ion-tab-button tab="home" href="/inicio/">
           <ion-icon :icon="homeOutline" />
           <ion-label>Início</ion-label>
@@ -14,6 +14,11 @@
         </ion-tab-button>
 
         <ion-tab-button tab="filas" href="/filas/">
+          <ion-icon :icon="peopleCircleOutline" />
+          <ion-label>Fila</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="perfil" href="/perfil/">
           <ion-icon :icon="peopleCircleOutline" />
           <ion-label>Fila</ion-label>
         </ion-tab-button>

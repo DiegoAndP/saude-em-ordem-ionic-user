@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <ion-title size="large">Olá, {{user?.displayName || "Usuário"}}!</ion-title>
+      <ion-title size="large">Olá, {{user?.nome || "Usuário"}}!</ion-title>
 
 
     </ion-content>

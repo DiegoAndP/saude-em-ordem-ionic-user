@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
-import { initAuth } from './composables/useAuth';
+import useAuth from './composables/useAuth';
 
-initAuth();
+useAuth();
 
 import { IonicVue } from '@ionic/vue';
 

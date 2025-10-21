@@ -39,7 +39,8 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       { path: '/inicio', component: () => import('@/pages/HomePage.vue') },
       { path: '/agendamentos', component: () => import('@/pages/AgendamentoPage.vue') },
-      { path: '/filas', component: () => import('@/pages/FilaPage.vue') }
+      { path: '/filas', component: () => import('@/pages/FilaPage.vue') },
+      { path: '/perfil', component: () => import('@/pages/ProfilePage.vue') }
     ]
   },
   // fallback

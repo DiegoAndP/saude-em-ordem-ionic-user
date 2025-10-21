@@ -23,47 +23,35 @@
 
 <script setup lang="ts">
 import router from '@/router';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import {
     IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
     IonItem, IonLabel, IonInput, IonButton, IonText
 } from '@ionic/vue';
-import { collection, query, getDocs, where } from 'firebase/firestore';
-import { db, auth } from '@/model/firebaseConfig';
-import { signInAnonymously, updateProfile } from 'firebase/auth';
+import useAuth from '@/composables/useAuth';
 
 const cpf = ref('');
 const error = ref('');
 
-watch(cpf, () => {
-    console.log(cpf.value)
-})
+const { loginWithCPF } = useAuth();
 
 const login = async () => {
     error.value = '';
+    if (!cpf.value) {
+        error.value = 'Informe o CPF';
+        return;
+    }
+
     try {
-        const refCol = collection(db, "pacientes")
-        const q = query(refCol, where("cpf", "==", cpf.value))
-        const querySnap = await getDocs(q)
-        if (querySnap.empty) {
-            error.value = "CPF não encontrado"
-            return
+        const ok = await loginWithCPF(cpf.value);
+        if (!ok) {
+            error.value = 'CPF não encontrado';
+            return;
         }
-
-        await signInAnonymously(auth)
-            .then(async (res) => {
-                const doc = querySnap.docs[0]
-                updateProfile(res.user, { displayName: doc.data().nome })
-                console.log("Paciente: ", doc.id, doc.data())
-                router.push('/menu/');
-            })
-            .catch(signError => {
-                console.log(signError)
-            })
-
+        router.push('/menu');
     } catch (err) {
-        console.log(err)
-        error.value = "Erro ao consultar o CPF"
+        console.error(err);
+        error.value = 'Erro ao efetuar login';
     }
 };
 </script>
