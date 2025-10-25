@@ -5,9 +5,16 @@
         <ion-title>Início</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content :fullscreen="true">
-      <ion-title size="large">Olá, {{user?.nome || "Usuário"}}!</ion-title>
+    <ion-content>
+      <ion-title v-if="ready">Olá,{{user.nome}}!!</ion-title>
 
+    </ion-content>
+
+    <ion-content>
+      <ion-title>
+        Agendamentos.
+      </ion-title>
+      
 
     </ion-content>
   </ion-page>
@@ -16,8 +23,16 @@
 <script setup lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import useAuth from '@/composables/useAuth';
+import { watch } from 'vue';
 
-const { user, isAuthenticated, ready } = useAuth();
+const { user, ready } = useAuth();
 
+watch(user, (val) => {
+  console.log(val)
+})
+
+watch(ready, (val) => {
+  console.log(val)
+})
 
 </script>

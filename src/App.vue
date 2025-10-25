@@ -1,7 +1,6 @@
 <template>
   <ion-app>
     <ion-router-outlet />
-    <!-- <tab-bar-component /> -->
   </ion-app>
 </template>
 

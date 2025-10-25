@@ -1,15 +1,17 @@
 <template>
     <ion-page>
         <ion-header>
-            <ion-toolbar>
+            <ion-toolbar color="primary">
                 <ion-title>
-                    Páginade Perfil
+                    Dados do Paciente
                 </ion-title>
             </ion-toolbar>
         </ion-header>
-        <ion-content>
-            <h1 style="padding: 1rem;">Content</h1>
-
+        <ion-content v-if="ready">
+            <ion-title>
+                {{ user.nome }}
+            </ion-title>
+            <p>Mudar Paciente</p>
         </ion-content>
     </ion-page>
 
@@ -18,5 +20,8 @@
 
 <script setup>
 import { IonPage, IonContent, IonTitle, IonHeader,  IonToolbar } from '@ionic/vue';
+import useAuth from '@/composables/useAuth';
+
+const { user, ready, isAuthenticated} = useAuth()
 
 </script>
