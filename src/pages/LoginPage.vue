@@ -9,7 +9,11 @@
         <ion-content color="primary" class="ion-padding">
             <ion-img src="/saude_em_ordem_logo.png" alt="Saúde em Ordem Logo">
             </ion-img>
-            <ion-item>
+
+
+
+
+            <ion-item  detail-icon="mail=outline">
                 <ion-label position="stacked">Email</ion-label>
                 <ion-input v-model="email" type="text" />
             </ion-item>
@@ -23,6 +27,10 @@
             <ion-text color="danger" v-if="error" class="ion-margin-top">
                 {{ error }}
             </ion-text>
+            <ion-toast trigger="open-toast" message="Vaga Reservada" :duration="5000">
+
+            </ion-toast>
+            
         </ion-content>
     </ion-page>
 </template>
@@ -31,7 +39,7 @@
 import router from '@/router';
 import { ref } from 'vue';
 import {
-    IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
+    IonPage, IonHeader, IonToolbar, IonTitle, IonToast, IonContent,
     IonItem, IonLabel, IonInput, IonButton, IonText, IonImg
 } from '@ionic/vue';
 import useAuth from '@/composables/useAuth';

@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { IonCard, IonText, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonButton } from '@ionic/vue';
+import { IonCard, IonText, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonButton,  } from '@ionic/vue';
 defineProps({
     especialidade: String,
     especialista: String,
@@ -28,6 +28,10 @@ defineProps({
     quantidade: String,
     setor: String
 })
+
+const reservarVaga = () => {
+
+}
 
 </script>
 
