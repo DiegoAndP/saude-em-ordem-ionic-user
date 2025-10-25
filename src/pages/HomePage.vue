@@ -9,14 +9,6 @@
       <ion-title v-if="ready">Olá,{{user.nome}}!!</ion-title>
 
     </ion-content>
-
-    <ion-content>
-      <ion-title>
-        Agendamentos.
-      </ion-title>
-      
-
-    </ion-content>
   </ion-page>
 </template>
 

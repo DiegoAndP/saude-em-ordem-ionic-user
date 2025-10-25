@@ -2,8 +2,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
 import useAuth from './composables/useAuth';
+import useAgendamento from './composables/useAgendamento';
 
 useAuth();
+useAgendamento();
 
 import { IonicVue } from '@ionic/vue';
 

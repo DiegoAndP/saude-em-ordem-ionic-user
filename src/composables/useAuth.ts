@@ -1,4 +1,4 @@
-import { ref, readonly, computed } from 'vue';
+import { ref, readonly } from 'vue';
 import { collection, query, where, getDocs, doc, setDoc, getDoc } from 'firebase/firestore';
 import { db, auth } from '@/model/firebaseConfig';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
