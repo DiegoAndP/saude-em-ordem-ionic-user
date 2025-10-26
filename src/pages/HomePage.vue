@@ -7,6 +7,7 @@
     </ion-header>
     <ion-content>
       <ion-title v-if="ready">Olá,{{user.nome}}!!</ion-title>
+      <p v-if="ready">Seu id é {{ user.uid }}</p>
 
     </ion-content>
   </ion-page>
